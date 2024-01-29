@@ -4,22 +4,62 @@ using UnityEngine;
 
 public class People
 {
-    private string Name;
-
     // 은닉화: 객체의 속성을 외부에서 직접 접근하지 못하도록 제한하는 개념
-    private int Age;
-
     // 캡슐화:
     // 데이터(속성)와 데이터를 처리하는 행위(메서드)를 하나로 묶는 것
     // 먼저 속성을 은닉화 하고 행위를 통해 속성을 접근/수정 하게 함으로서
     // 잘못된 접근이나 의도치 않는 값으로 변하는 보호 효과를 누린다.
+    private string Name;
+    private int Age;
 
 
-    public People(string name, int age )
+    // 프로퍼티:
+    // 속성이라는 뜻으로 변수의 값을 외부에서 접근할 수 있도록 하면서
+    // 동시에 캡슐화를 지원하는 C#의 기능이다.
+    // - get 접근자: 멤버 변수로부터 값을 읽어온다.
+    // - set 접근자: 멤버 변수에 값을 할당한다.
+    private float _height;
+    public float Height
+    {
+        get // 프로퍼티 내부에 get만 지정하면 읽기 전용
+        {
+            return _height;
+        }
+        set // 프로퍼티 내부에 set만 지정하면 쓰기 전용
+        {
+            if (value < 0)
+            {
+                return;
+            }
+
+            _height = value;  // value 키워드는 set 접근자의 매개 변수
+        }
+    }
+
+    private string _MBTI;
+    public string MBTI
+    {
+        get { return _MBTI; }
+        set
+        {
+            if(value.Length != 4)
+            {
+                return;
+            }
+
+            _MBTI = value;
+        }
+    }
+
+
+   
+    public People(string name, int age, float height, string mbti)
     {
         Name = name;
         Age = age;
-    }
+        _height = height;
+        _MBTI = mbti;
+     }
 
     // Get/Set  -> 데이터(속성)를 외부에서 읽고/수정 시 무결성이 깨질 수 있으므로
     // 데이터는 메서드를 통해 읽고/수정하는 게 좋다.
@@ -52,4 +92,16 @@ public class People
     {
         return Name;
     }
+
+    // 속성(멤버 변수) 은닉화/캡슐화 문제점:
+    // 속성을 많이 선언할수록 Get/Set과 같은 메소드가 많아지고, (귀찮다...)
+    // 변수에 접근한다는 느낌이 아닌 메소드를 사용한다는 느낌이 커진다.
+
+    // 위 문제점을 보완하기 위해..
+
+    // 프로퍼티:
+    // 속성이라는 뜻으로 변수의 값을 외부에서 접근할 수 있도록 하면서
+    // 동시에 캡슐화를 지원하는 C#의 기능이다.
+    // - get 접근자: 멤버 변수로부터 값을 읽어온다.
+    // - set 접근자: 멤버 변수에 값을 할당한다.
 }
