@@ -49,7 +49,7 @@ public class ArrayListExample : MonoBehaviour
         Debug.Log(myList[3]);
         Debug.Log(myList[4]);
         Debug.Log(myList[5]);
-        Debug.Log(myList[6]);
+p[ubli        Debug.Log(myList[6]);
 
         // 리스트 개수 속성
         Debug.Log($"데이터의 개수: {myList.Count}");
