@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,15 +20,25 @@ public class TextFileStreamExample : MonoBehaviour
         FileStream fs = new FileStream("C:/Users/USER/Desktop/test.txt", FileMode.Create);
         // FileMode.Create: 파일이 없다면 새로 생성해주고, 있으면 덮어씌운다.
 
-        
         // <파일 쓰기>
         // 텍스트 파일을 쓸때는 "StreamWriter" 클래스 사용
         StreamWriter sw = new StreamWriter(fs);
-        sw.WriteLine("안녕하세요.");
-        sw.WriteLine("제 이름은 이성민입니다..");
-        sw.WriteLine("만나서 반가워요.");
-        sw.Close(); // 파일을 다 쓰면 꼭 닫아줘야 한다.
-
+        try
+        {
+            sw.WriteLine("안녕하세요.");
+            sw.WriteLine("제 이름은 이성민입니다..");
+            // test.txt 파일 삭제
+            sw.WriteLine("만나서 반가워요.");
+        }
+        catch (Exception e)
+        {
+            // 적절한 예외 처리 코드를 처리
+        }
+        finally
+        {
+            sw.Close(); // 파일을 다 쓰면 꼭 닫아줘야 한다.
+        }
+        
 
         // <파일 읽기>
         // 텍스트 파일을 읽을때는 "StreamReader" 클래스 사용
