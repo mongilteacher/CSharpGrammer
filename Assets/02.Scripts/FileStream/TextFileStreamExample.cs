@@ -29,16 +29,19 @@ public class TextFileStreamExample : MonoBehaviour
             sw.WriteLine("제 이름은 이성민입니다..");
             // test.txt 파일 삭제
             sw.WriteLine("만나서 반가워요.");
+            return;
         }
         catch (Exception e)
         {
             // 적절한 예외 처리 코드를 처리
+            return;
+
         }
         finally
         {
-            sw.Close(); // 파일을 다 쓰면 꼭 닫아줘야 한다.
+            sw.Close(); // 파일을 다 쓰면 꼭 닫아줘야 한다.\
         }
-        
+
 
         // <파일 읽기>
         // 텍스트 파일을 읽을때는 "StreamReader" 클래스 사용
