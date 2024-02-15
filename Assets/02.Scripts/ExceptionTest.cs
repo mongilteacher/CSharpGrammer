@@ -40,6 +40,7 @@ public class ExceptionTest : MonoBehaviour
             Debug.Log(numbers[index]);
         }
         // 3. MissingReferenceException
+        //  = UnAssignedReferenceException
         // - 유니티에서 할당되지 않은 객체의 멤버에 접근하거나 
         // - 씬에서 삭제(destroy)되었지만 여전히 그 객체를 참조하려고 할 때 발생
         // - 비활성화된 게임 오브젝트에서 코루틴을 실행하려고 할 때도 발생

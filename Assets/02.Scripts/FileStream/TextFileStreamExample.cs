@@ -17,30 +17,13 @@ public class TextFileStreamExample : MonoBehaviour
         // 매개변수
         // 1. 어떤 파일?       (파일의 경로)
         // 2. 어떻게 다룰꺼냐? (파일의 모드)
-        FileStream fs = new FileStream("C:/Users/USER/Desktop/test.txt", FileMode.Create);
+        FileStream fs = new FileStream("C:/Users/USER/Desktop/test.txt", FileMode.Create, FileAccess.Read, FileShare.ReadWrite, bufferSize: 4096, useAsync: true);
         // FileMode.Create: 파일이 없다면 새로 생성해주고, 있으면 덮어씌운다.
 
-        // <파일 쓰기>
+        // <파일 쓰기>x`
         // 텍스트 파일을 쓸때는 "StreamWriter" 클래스 사용
         StreamWriter sw = new StreamWriter(fs);
-        try
-        {
-            sw.WriteLine("안녕하세요.");
-            sw.WriteLine("제 이름은 이성민입니다..");
-            // test.txt 파일 삭제
-            sw.WriteLine("만나서 반가워요.");
-            return;
-        }
-        catch (Exception e)
-        {
-            // 적절한 예외 처리 코드를 처리
-            return;
-
-        }
-        finally
-        {
-            sw.Close(); // 파일을 다 쓰면 꼭 닫아줘야 한다.\
-        }
+        
 
 
         // <파일 읽기>
