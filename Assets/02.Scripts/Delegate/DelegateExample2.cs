@@ -14,7 +14,8 @@ public class DelegateExample2 : MonoBehaviour
         
         // C#의 배열이나 컬렉션에는 데이터를 쉽게 가공할 수 있는 Linq 기능이 있다.
         // Linq: 데이터들에게 질문을 던지고 그 결과를 받아오는 기능
-        int count = numbers.Count(IsBiggerThenZero);
+        //int count = numbers.Count(IsBiggerThenZero);
+        int count = numbers.Count(n => n > 0);
         Debug.Log(count);
     }
 
